@@ -105,10 +105,10 @@ I'm a line affecting the leading whitespace
             
             Another line of text
             
-            	var object = {
-            		""key1"": value,
-            		""key2"": value
-            	}
+                var object = {
+                    ""key1"": value,
+                    ""key2"": value
+                }
             ";
 
             string expected = 
@@ -116,10 +116,10 @@ I'm a line affecting the leading whitespace
 
 Another line of text
 
-	var object = {
-		""key1"": value,
-		""key2"": value
-	}";
+    var object = {
+        ""key1"": value,
+        ""key2"": value
+    }";
 
             string actual = XmlTextHelper.NormalizeIndentation(input);
 
@@ -133,14 +133,14 @@ Another line of text
         public void XmlComment_handles_mixed_indendation_using_tab_space()
         {
             string input = @"
-	 ## Test Heading
-	 
-	 Another line of text
-	 
-	 	var object = {
-	 		""key1"": value,
-	 		""key2"": value
-	 	}
+     ## Test Heading
+     
+     Another line of text
+     
+        var object = {
+            ""key1"": value,
+            ""key2"": value
+        }
 ";
 
             string expected = 
@@ -148,10 +148,10 @@ Another line of text
 
 Another line of text
 
-	var object = {
-		""key1"": value,
-		""key2"": value
-	}";
+    var object = {
+        ""key1"": value,
+        ""key2"": value
+    }";
 
             string actual = XmlTextHelper.NormalizeIndentation(input);
 
@@ -165,14 +165,14 @@ Another line of text
         public void XmlComment_handles_mixed_indendation_using_space_tab()
         {
             string input = @"
- 	## Test Heading
- 	
- 	Another line of text
- 	
- 		var object = {
- 			""key1"": value,
- 			""key2"": value
- 		}
+    ## Test Heading
+    
+    Another line of text
+    
+        var object = {
+            ""key1"": value,
+            ""key2"": value
+        }
 ";
 
             string expected = 
@@ -180,10 +180,10 @@ Another line of text
 
 Another line of text
 
-	var object = {
-		""key1"": value,
-		""key2"": value
-	}";
+    var object = {
+        ""key1"": value,
+        ""key2"": value
+    }";
 
             string actual = XmlTextHelper.NormalizeIndentation(input);
 
@@ -199,14 +199,14 @@ Another line of text
             string input = @"
     Space Indentation Line 1
     Space Indentation Line 2
-	Misplaced Tab Indentation
+    Misplaced Tab Indentation
     Space Indentation Line 4
 ";
 
             string expected = 
 @"    Space Indentation Line 1
     Space Indentation Line 2
-	Misplaced Tab Indentation
+    Misplaced Tab Indentation
     Space Indentation Line 4";
 
             string actual = XmlTextHelper.NormalizeIndentation(input);
@@ -221,17 +221,17 @@ Another line of text
         public void XmlComment_detects_consistent_tab_indendation()
         {
             string input = @"
-	Tab Indentation Line 1
-	Tab Indentation Line 2
+    Tab Indentation Line 1
+    Tab Indentation Line 2
     Misplaced Space Indentation
-	Tab Indentation Line 4
+    Tab Indentation Line 4
 ";
 
             string expected =
 @"	Tab Indentation Line 1
-	Tab Indentation Line 2
+    Tab Indentation Line 2
     Misplaced Space Indentation
-	Tab Indentation Line 4";
+    Tab Indentation Line 4";
 
             string actual = XmlTextHelper.NormalizeIndentation(input);
 
